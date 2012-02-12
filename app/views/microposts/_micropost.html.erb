@@ -1,0 +1,51 @@
+
+<tr>
+	<td class="micropost">
+		
+		<span class="sport"><%= micropost.sport %></span>
+		<span class="content"><%= micropost.content %></span>
+		<span class="venue"><%= micropost.venue %><a href="http://maps.google.com/maps?hl=en&q=My+Location+to+<%= micropost.venue %>"> (directions)</a></span>
+		<span class="timestamp">
+		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+		<div class='spread'>
+  <div class='twshare left'>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Ball4Days .check out this pickup sport posting">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ 
+ <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" width="450" font=""></fb:like>
+</div>
+
+		</span>
+	</td>
+	
+	<td class= "micropostcity">
+<div>
+
+
+
+<span class="city"><%=micropost.city %></span>
+	<% if current_user?(micropost.user) %>
+		<%= link_to "delete", micropost, :method => :delete,
+						 :confirm => "You sure?",
+					         :title => micropost.content %>
+ 
+
+
+
+	</td>
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+</tr>
+
+
+

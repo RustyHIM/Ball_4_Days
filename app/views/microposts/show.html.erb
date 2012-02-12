@@ -1,0 +1,72 @@
+
+<table class="details" summary="micropost information">
+<tr>
+	<td class="gravatar">
+	<%= link_to gravatar_for(feed_item.user), feed_item.user %>
+	</td>
+	<td class="micropost">
+		<span class="user">
+			<%= link_to feed_item.user.name, feed_item.user %></span>
+		<span class="sport"><%= feed_item.sport %></span>
+		<span class="content"><%= feed_item.content %></span>
+		<span class="venue"><%= feed_item.venue %><a href="http://maps.google.com/maps?hl=en&q=My+Location+to+<%= feed_item.venue %>"> (directions)</a></span>
+		<span class="timestamp">
+		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.  
+<div class='spread'>
+  <div class='twshare left'>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Ball4Days .check out this pickup sport posting">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ 
+ <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" width="450" font=""></fb:like>
+</div>
+
+		</span>
+	</td>
+
+<td class="micropostcity">
+
+
+
+
+<span class=city"><%= feed_item.city %></span>
+	<% if current_user?(feed_item.user) %>
+	
+	<%= link_to "delete", feed_item, :method => :delete,
+				         :confirm => "You sure?",
+				         :title => feed_item.content %>
+
+
+
+	<% end %>
+
+
+
+
+	</tr>
+
+	
+ <td class="sidebar round">
+      <strong> <%= @user.name %> </strong><br/>
+      <strong>URL</strong><%= link_to user_path(@user), @user %><br/>
+	
+      <strong><%= link_to "People to Follow", users_path %></strong><br/>
+      <strong>Pickups Posted:</strong> <%= @user.microposts.count %>
+	<%= render 'shared/stats' %> 
+
+<br></br>
+<strong>-Find Pickups-</strong>
+<br></br>
+
+<%= image_tag("basketballimage.png", :class => "bballimage") %><%= link_to "Pickups", basketballfeed_path %>
+<br></br>
+
+<%= image_tag("soccerball.png", :class => "soccerballimage") %><%= link_to "Pickups", soccerfeed_path %>
+<br></br>
+
+<%= image_tag("football.png", :class => "footballimage") %><%= link_to "Pickups", footballfeed_path %>
+<br></br>
+
+
+    </td>
+
+  </tr>
+</table>

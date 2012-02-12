@@ -1,0 +1,44 @@
+<tr>
+	<td class="gravatar">
+	<%= link_to gravatar_for(feed_item.user), feed_item.user %>
+	</td>
+	<td class="micropost">
+		<span class="user">
+			<%= link_to feed_item.user.name, feed_item.user %></span>
+		<span class="sport"><%= feed_item.sport %></span>
+		<span class="content"><%= feed_item.content %></span>
+		<span class="venue"><%= feed_item.venue %><a href="http://maps.google.com/maps?hl=en&q=My+Location+to+<%= feed_item.venue %>"> (directions)</a></span>
+		<span class="timestamp">
+		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.  
+<div class='spread'>
+  <div class='twshare left'>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Ball4Days .check out this pickup sport posting">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ 
+ <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" width="450" font=""></fb:like>
+</div>
+
+		</span>
+	</td>
+
+<td class="micropostcity">
+
+
+
+
+<span class=city"><%= feed_item.city %></span>
+	<% if current_user?(feed_item.user) %>
+	
+	<%= link_to "delete", feed_item, :method => :delete,
+				         :confirm => "You sure?",
+				         :title => feed_item.content %>
+
+
+
+	<% end %>
+
+
+
+
+	</tr>
+
+	

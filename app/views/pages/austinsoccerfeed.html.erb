@@ -1,0 +1,40 @@
+<% if signed_in? %>
+<td><small><p align=right><%= link_to "Get Updates! Subscribe to this page's RSS Feed", austinsoccerfeed_url(:rss) %></small><%= image_tag("rss-icon.png",:class => "rss icon")%> </td></align=right>
+<h1>Austin <%= link_to "Soccer Feed", soccerfeed_path %></h1>
+<h2 >
+<small><small><small><%= link_to "Austin", austinsoccerfeed_path %></small></small></small> |
+<small><small><small> <%= link_to "Atlanta", atlantasoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "Boston", bostonsoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "DC", dcsoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "NYC", nycsoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "Philadelphia", phillysoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "Richmond", richmondsoccerfeed_path %></small></small></small> |
+<small><small><small><%= link_to "Wilmington", wilmingtonsoccerfeed_path %></small></small></small>
+</h2>
+
+<table class="front" summary="For signed-in users">
+<tr>
+
+
+<td class="main">
+
+<%= render 'shared/feed' %>
+	</td>
+</tr>
+</table>
+<% else %>
+
+
+
+
+<h1>Ball4Days</h1>
+<p>
+This is the home page of Ball4Days
+</p>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
+
+
+
+
+

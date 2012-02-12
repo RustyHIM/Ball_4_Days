@@ -1,0 +1,44 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1><%= gravatar_for @user %><%= @user.name %></h1>
+<h2><div><%= @user.city %></div></h2>
+<i><div><%= @user.bio %></div></i>
+<br></br>
+     	
+<%= render 'follow_form' if signed_in? %>
+	<% unless @user.microposts.empty? %>
+	<table class="microposts", "micropostcity" summary="User microposts">
+	
+	<i><strong>My Pickups</i></strong>
+	<%= render @microposts %>
+	</table>
+	<%= will_paginate @microposts %>
+	<% end %>
+ 	</td>
+    <td class="sidebar round">
+      <strong> <%= @user.name %> </strong><br/>
+      <strong>URL</strong><%= link_to user_path(@user), @user %><br/>
+      <strong><%= link_to "People to Follow", users_path %></strong><br/>
+      <strong>Pickups Posted:</strong> <%= @user.microposts.count %>
+	<%= render 'shared/stats' %> 
+
+<br></br>
+<strong>-Find Pickups-</strong>
+<br></br>
+
+<%= image_tag("basketballimage.png", :class => "bballimage") %><%= link_to "Pickups", basketballfeed_path %>
+<br></br>
+
+<%= image_tag("soccerball.png", :class => "soccerballimage") %><%= link_to "Pickups", soccerfeed_path %>
+<br></br>
+
+<%= image_tag("football.png", :class => "footballimage") %><%= link_to "Pickups", footballfeed_path %>
+<br></br>
+
+
+    </td>
+ 
+  </tr>
+</table>
+

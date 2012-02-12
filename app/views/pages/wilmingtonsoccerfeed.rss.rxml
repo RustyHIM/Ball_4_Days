@@ -1,0 +1,18 @@
+xml.instruct! :xml, :version => "1.0", :encoding=>"UTF-8"
+xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
+  xml.channel do
+  xml.title "Wilmington Soccer Feed (click to go to site)"
+  xml.description "Wilmington Ball4Days Soccer Pickups"
+  xml.link(url_for(:action => "wilmingtonsoccerfeed", :only_path => false))
+  xml.language "en.us"
+
+  for feed_item in @feed_items
+    xml.item do
+	xml.title("posted by:",feed_item.user.name,"[venue:",feed_item.venue,"-",feed_item.city,"-","]")
+        xml.description(feed_item.content)
+        xml.pubDate(feed_item.created_at)
+    end
+   end
+  end
+end
+  

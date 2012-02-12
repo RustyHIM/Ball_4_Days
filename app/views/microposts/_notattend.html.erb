@@ -1,0 +1,4 @@
+<%= form_for current_user.comments.find_by_goer_id(@micropost),
+	:html => { :method => :delete } do |f| %>
+<div class="actions"><%= f.submit "No longer attending" %></div>
+<% end %>

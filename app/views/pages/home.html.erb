@@ -1,0 +1,28 @@
+<% if signed_in? %>
+<table class="front" summary="For signed-in users">
+<tr>
+	<td class="main">
+		<h1 class="micropost"> Post a Pick Up?</h1>
+		<%= render 'shared/micropost_form' %>
+		<small><%= link_to "Get Updates! Subscribe to the 'People you Follow' RSS Feed", root_url(:rss) %></small><%= image_tag("rss-icon.png",:class => "rss icon")%>
+		<%= render 'shared/feed' %>
+	</td>
+
+	<td class="sidebar round">
+		<%= render 'shared/user_info' %></br>
+		<%= render 'shared/stats' %></br>
+	</td>
+</tr>
+</table>
+<% else %>
+
+
+<h1>Ball4Days</h1>
+<p>
+This is the home page of Ball4Days
+</p>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
+
+
+

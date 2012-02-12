@@ -1,0 +1,34 @@
+<%= form_for @micropost do |f| %>
+<% render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :sport %><br />
+		<%= f.select :sport, [['basketball'],['soccer'],['football']]  %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :content, "Details" %><br />
+		<%= f.text_area :content, :placeholder => "Time, Date, & Other details", :rows=>4, :cols=>40 %><small><small>100 character max</small></small>
+		
+	</div>
+
+	<div class="field">
+		<%= f.label :venue, "Venue Name" %><br />
+		<%= f.text_area :venue, :placeholder => "ex. Brandywine High School soccer field", :rows=> 1, :cols=>40 %><br />
+	</div>
+
+	<div class="field">
+		<%= f.label :city, "Pick up in the Greater area of.." %>
+		<%= f.select :city, [['Austin'],['Atlanta'],['Boston'],['DC'],['NYC'],['Philadelphia'],['Richmond'],['Wilmington']] %>
+	</div>
+	
+	<div class="actions">
+	<%= f.submit "Submit Pickup" %>
+	</div>
+	<% end %>
+
+	
+	
+
+
+
+
