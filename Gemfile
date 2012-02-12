@@ -15,16 +15,20 @@ group :development do
 end
 
 
-# gem 'sqlite3', '1.3.3', :group => :development
 
 group :development, :test do
+	gem 'sqlite3', '1.3.3'
 	gem 'rspec-rails', '2.6.1'
 	gem 'webrat', '0.7.1'
 	gem 'factory_girl_rails', '1.0'
 end
 
+group :production do
+	gem 'pg'
+end
 
-gem 'pg', :group => :production
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
