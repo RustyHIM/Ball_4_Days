@@ -15,7 +15,7 @@ group :development do
 end
 
 
-gem 'sqlite3', '1.3.3', :group => :development
+# gem 'sqlite3', '1.3.3', :group => :development
 
 group :development, :test do
 	gem 'rspec-rails', '2.6.1'
