@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20120210204741) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
+    t.string   "bio"
+    t.string   "city"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
